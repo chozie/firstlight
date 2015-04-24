@@ -142,19 +142,23 @@ transition:color .2s linear, background-color .3s linear, border-color .3s linea
 .dictionary_2 input{ width:130px; border:3px solid #00b2b0; border-left:0;line-height:45px; font-size:1.2em; border-radius:0px 6px 6px 0px; cursor:pointer; color:#fff; background:#00b2b0}
 .dictionary_2 input:hover{ border:3px solid #00C9C6;background:#00C9C6;border-left:0;}
 .contact{ width:930px; display:block; float:left; margin-bottom:50px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
+.dictionary_main{ width:840px; display:block; float:left; margin-left:50px;margin-top:30px; border-bottom:1px solid #ccc; padding-bottom:20px;}
+.dictionary_main_1{ font-size:24px;line-height:25px;padding-bottom:10px; color:#00b2b0; font-family:arial}
+.dictionary_main_2{ font-size:18px;}
+.dictionary_main_1 span{ color:#F00}
+.tag_1 { width:800px; display:block; float:left; margin-left:45px; }
+.tag_1 li{ width:auto; display:block; float:left; margin-right:20px;}
+.tag_1 li a{ font-size:24px;height:50px; line-height:50px; padding:0 0 50px 0; }
+.tag_1 li a:hover{ color:#00b2b0}
+.hovertag { color:#00b2b0; background:url(../images/arrow_1.png) no-repeat 35px 25px }
+.dictionary_main_3{ width:800px; display:block; float:left; margin-left:50px; font-size:30px; margin-top:20px; color:#00b2b0}
+.dictionary_main_4{ font-size:22px;line-height:25px;padding-bottom:10px; color:#333; font-family:arial}
+.dictionary_main_5{ font-size:18px; margin-left:30px; color:#999}
+.dictionary_main_4 span{ color:#00b2b0}
+.dictionary_main_4 .dictionary_main_4_1{ color:#00b2b0; margin-right:20px;}
+.login_5{ width:100%; display:block; float:left; text-align:center; font-size:16px; color:#333; background:#FF9; line-height:35px; margin-top:-40px}
+.login_5 a{ font-size:16px; color:#f90}
+.login_5 a:hover{ color:#f00}
 
 
 

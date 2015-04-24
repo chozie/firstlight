@@ -6,14 +6,14 @@
 <link href="style/common.css" rel="stylesheet" type="text/css">
 <link href="style/stylesheet.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="script/jquery-1.8.3.min.js"></script> 
+<script type="text/javascript" src="script/tag.js" ></script>
 </head>
 
 <body>
 <div class="wrapper"> 
     <div class="header">
         <div class="h_wapper">      
-            <div class="logo"><a href="index_en.html"><img src="images/logo.png"></a></div>
-            
+            <div class="logo"><a href="index_en.html"><img src="images/logo.png"></a></div>            
             <div class="language">
                 <ul>
                     <li><span><a href="index.html">中文</a></span> | <span><a href="index_en.html">English</a></span></li>
@@ -23,11 +23,33 @@
         </div>
     </div>
     <div class="content">
+    	<div class="login_5">登录成功 ！ <a href="psw_edit.html">请修改初始密码!</a></div>
         <div class="inpage_tit"><span>Dictionary</span></div>
+        <div class="tag_1">
+        	<ul>
+            	<li><a href="dictionary.html">英汉互译</a></li>
+                <li><a href="dictionary_1.html" class="hovertag">句子翻译</a></li>
+            </ul>
+        </div>
         <div>
         	<ul class="dictionary">
-            	<li class="dictionary_1"><input type="text"></li>
-            	<li class="dictionary_2"><input type="submit" value="Translate" onclick="window.location='dictionary_1.html'" ></li>
+            	<li class="dictionary_1"><input type="text" placeholder="需5-10个关键词，关键词之间用“,”分隔"  ></li>
+            	<li class="dictionary_2"><input type="submit" value="Translate" onclick="window.location='dictionary_1.html'"></li>
+            </ul>
+            <ul>
+            	<li class="dictionary_main_3">go on</li>
+            </ul>
+            <ul class="dictionary_main">
+            	<li class="dictionary_main_4"><span class="dictionary_main_4_1">1</span>He tears up the summons and <span>go on</span> holiday to spain</li>
+                <li class="dictionary_main_5">他撕碎了传票并去西班牙度假。</li>
+            </ul>
+            <ul class="dictionary_main">
+            	<li class="dictionary_main_4"><span class="dictionary_main_4_1">2</span>He <span>go on</span> a refresher course in bookkeeping.</li>
+                <li class="dictionary_main_5">他继续学习笔记进修课程。</li>
+            </ul>
+            <ul class="dictionary_main">
+            	<li class="dictionary_main_4"><span class="dictionary_main_4_1">3</span>It is not easy to make a simile <span>go on</span> all fours.</li>
+                <li class="dictionary_main_5">一个比喻要完全贴切是不容易的。</li>
             </ul>
         </div>
     </div>
@@ -41,99 +63,5 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-var glume = function(banners_id, focus_id){
-	this.$ctn = $('#' + banners_id);
-	this.$focus = $('#' + focus_id);
-	this.$adLis = null;
-	this.$btns = null;
-	this.switchSpeed = 5;//自动播放间隔(s)
-	this.defOpacity = 1;
-	this.crtIndex = 0;
-	this.adLength = 0;
-	this.timerSwitch = null;
-	this.init();
-};
-glume.prototype = {
-	fnNextIndex:function(){
-		return (this.crtIndex >= this.adLength-1)?0:this.crtIndex+1;
-	},
-	//动画切换
-	fnSwitch:function(toIndex){
-		if(this.crtIndex==toIndex){return;}
-		this.$adLis.css('zIndex', 0);
-		this.$adLis.filter(':eq('+this.crtIndex+')').css('zIndex', 2);
-		this.$adLis.filter(':eq('+toIndex+')').css('zIndex', 1);
-		this.$btns.removeClass('on');
-		this.$btns.filter(':eq('+toIndex+')').addClass('on');
-		var me = this;
-
-		$(this.$adLis[this.crtIndex]).animate({
-			opacity: 0
-		}, 1000, function() {
-			me.crtIndex = toIndex;
-			$(this).css({
-				opacity: me.defOpacity,
-				zIndex: 0
-			});
-		});
-	},
-	fnAutoPlay:function(){
-		this.fnSwitch(this.fnNextIndex());
-	},
-	fnPlay:function(){
-		var me = this;
-		me.timerSwitch = window.setInterval(function() {
-			me.fnAutoPlay();
-		},me.switchSpeed*1000);
-	},
-	fnStopPlay:function(){
-		window.clearTimeout(this.timerSwitch);
-		this.timerSwitch = null;
-	},
-
-	init:function(){
-		this.$adLis = this.$ctn.children();
-		this.$btns = this.$focus.children();
-		this.adLength = this.$adLis.length;
-
-		var me = this;
-		//点击切换
-		this.$focus.on('click', 'a', function(e) {
-			e.preventDefault();
-			var index = parseInt($(this).attr('data-index'), 10)
-			me.fnSwitch(index);
-		});
-		this.$adLis.filter(':eq('+ this.crtIndex +')').css('zIndex', 2);
-		this.fnPlay();
-
-		//hover时暂停动画
-		this.$ctn.hover(function() {
-			me.fnStopPlay();
-		}, function() {
-			me.fnPlay();
-		});
-
-		if($.browser.msie && $.browser.version < 7) {
-			this.$btns.hover(function() {
-				$(this).addClass('hover');
-			},function() {
-				$(this).removeClass('hover');
-			});
-		}
-	}
-};
-var player1 = new glume('_banners', '_focus');    
-</script>
 </body>
 </html>
